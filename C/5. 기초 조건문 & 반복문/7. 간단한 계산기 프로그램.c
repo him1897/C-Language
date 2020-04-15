@@ -6,32 +6,50 @@ int main(void)
 	int x, y;
 	while(1)
 	{
-		printf("수식을 입력해주세요! : ");
-		scanf("%d %c %d", &x, &o, &y);
-		if(o == '+'){
+		printf("수식을 입력하세요 : ");
+		scanf("%o %c %d", &x, &o, &y);
+		if(o == '+')
+		{
 			printf("%d %c %d = %d\n", x, o, y, x + y);
-		}else if(o == '-'){
+		}
+		else if(o == '-')
+		{
 			printf("%d %c %d = %d\n", x, o, y, x - y);
-		}else if(o == '*'){
+		}
+		else if(o == '*')
+		{
 			printf("%d %c %d = %d\n", x, o, y, x * y);
-		}else if(o == '/'){
+		}
+		else if(o == '/')
+		{
 			printf("%d %c %d = %d\n", x, o, y, x / y);
-		}else if(o == '%'){
+		}
+		else if(o == '%')
+		{
 			printf("%d %c %d = %d\n", x, o, y, x % y);
-		}else{
-			printf("입력이 잘못 되었습니다.");
 		}
-		getchar(); //버퍼, 즉 엔터값을 먹는다. 
-		printf("프로그램을 종료하시겠습니까? (Y/N)");
+		else
+		{
+			printf("입력이 잘못 되었습니다.\n");
+			//무한루프에 빠짐. 
+		}
+		//버퍼를 한번 먹어줌. (엔터값을 먹어줌)
+		getchar();
+		printf("프로그램을 종료하시겠습니까? (y/n)");
 		scanf("%c", &o);
-		if(o == 'n' || o == 'N'){
+		if(o == 'n' || o == 'N')
+		{
 			continue;
-		}else if(o == 'y' || o == 'Y'){
-			break;
-		}else{
-			printf("잘못 입력하였습니다.\n");
+			//continue 함수로 다시 반복문 맨 위로 올라가서 실행하라. 
 		}
-		
+		else if(o == 'y' || o == 'Y')
+		{
+			break;
+		}
+		else
+		{
+			printf("입력이 잘못되었습니다.\n");
+		}
 	}
 	return 0;
 }
